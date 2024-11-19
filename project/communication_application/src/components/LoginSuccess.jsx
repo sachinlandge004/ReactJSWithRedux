@@ -1,10 +1,8 @@
 import React from "react";
 import Tabs from "./Tabs";
 
-
-
 function LoginSuccess() {
-
+  const loggedInUserEmail = JSON.parse(localStorage.getItem("loggedInUser"));
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -13,7 +11,10 @@ function LoginSuccess() {
             Login Successful
           </h2>
 
-            <h2 className="text-xl mb-6 text-center"> Welcome ! user</h2>
+          <h2 className="text-xl mb-6 text-center">
+            {" "}
+            Welcome !! {loggedInUserEmail}
+          </h2>
 
           <Tabs />
         </div>

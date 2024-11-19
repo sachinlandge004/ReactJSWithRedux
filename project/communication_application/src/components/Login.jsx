@@ -1,4 +1,3 @@
-// src/components/LoginForm.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,20 +16,22 @@ function LoginForm() {
       return;
     }
 
-    setError("");
-    // Handle the login logic here (e.g., API request)
+    // Handle the login logic here
     console.log("Email:", email);
     console.log("Password:", password);
 
     let existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    navigate("/login-success");
+    const userExists = existingUsers.some(
+      (user) => user.email === email && user.password === password
+    );
 
-/*     if (user.email === email && user.password === password) {
+    if (userExists) {
+      localStorage.setItem("loggedInUser", JSON.stringify(email));
       navigate("/login-success");
     } else {
-      setError("Email or Password is incorrect");
-    } */
+      setError("email or password is incorrect !");
+    }
   };
 
   return (

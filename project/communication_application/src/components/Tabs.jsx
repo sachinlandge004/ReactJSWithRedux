@@ -32,7 +32,7 @@ function Tabs() {
         >
           Manage Documents
         </button>
-        <Link to="/" className="tab">
+        <Link to="/logout" className="tab">
           <button
             className={activeTab === 4 ? "tab active" : "tab"}
             onClick={() => handleTabClick(4)}

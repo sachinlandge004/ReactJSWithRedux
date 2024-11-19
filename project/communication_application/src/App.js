@@ -8,6 +8,7 @@ import Register from "./components/Register";
 import RegisterSuccess from "./components/RegisterSuccess";
 import LoginSuccess from "./components/LoginSuccess";
 import ErrorPage from "./components/ErrorPage";
+import Logout from "./components/Logout";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +31,10 @@ function App() {
     {
       path: "/login-success",
       element: <LoginSuccess />,
+    },
+    {
+      path: "/logout",
+      element: <Logout />,
     },
     {
       path: "*",
