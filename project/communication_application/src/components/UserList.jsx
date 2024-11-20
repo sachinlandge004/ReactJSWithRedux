@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../css/Table.css";
 
 const initialUsers = JSON.parse(localStorage.getItem("users"));
+const loggedInUserEmail = JSON.parse(localStorage.getItem("loggedInUser"));
 
 function ConfirmationPopup({ onConfirm, onCancel }) {
   return (
@@ -105,11 +106,12 @@ function UserList() {
                       onChange={(e) => setEditName(e.target.value)}
                     />
                   </td>
-                  <td>
+                  <td>                    
                     <input
                       type="email"
                       value={editEmail}
                       onChange={(e) => setEditEmail(e.target.value)}
+                      disabled = {loggedInUserEmail === user.email}
                     />
                   </td>
                   <td>
@@ -125,7 +127,7 @@ function UserList() {
                   <td>{user.email}</td>
                   <td>
                     <button onClick={() => handleEdit(user)}>Edit</button>
-                    <button onClick={() => handleDeleteClick(user)}>
+                    <button disabled = {loggedInUserEmail === user.email} onClick={() => handleDeleteClick(user)}>
                       Delete
                     </button>
                   </td>
